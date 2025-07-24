@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: #181825;
+            color: #c9d1d9;
+            font-family: 'Fira Mono', 'Menlo', 'Consolas', 'Monaco', monospace;
+        }
+        .editor-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            background: repeating-linear-gradient(0deg, #232336 0px, #282858 1px, transparent 1px, transparent 32px);
+        }
+        .container {
+            display: flex;
+            max-width: 900px;
+            margin: 48px auto 0 auto;
+            box-shadow: 0 4px 32px #000a;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #232336;
+        }
+        nav {
+            background: #232336;
+            width: 180px;
+            min-height: 420px;
+            padding: 24px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .explorer-title {
+            color: #7aa2f7;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 0 24px 16px 24px;
+            letter-spacing: 1px;
+        }
+        .node {
+            background: #232336;
+            color: #c9d1d9;
+            border-radius: 6px 6px 0 0;
+            margin: 0 16px;
+            padding: 12px 24px;
+            font-size: 1.05rem;
+            font-family: inherit;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: 0 2px 8px #0004;
+            text-decoration: none;
+            border: 1px solid #35354a;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            display: block;
+        }
+        .node:hover {
+            background: #2d2d40;
+            color: #7aa2f7;
+            box-shadow: 0 6px 24px #0007;
+        }
+        main {
+            flex: 1;
+            background: #181825;
+            padding: 48px 32px;
+        }
+        h1 {
+            font-family: inherit;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #7aa2f7;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+        p {
+            color: #b0b0b0;
+            font-size: 1.2rem;
+            max-width: 500px;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 0 10px 0;
+            color: #35354a;
+            font-size: 0.9rem;
+            width: 100%;
+            margin-top: 40px;
+        }
+        @media (max-width: 600px) {
+            h1 { font-size: 1.2rem; }
+            main { padding: 24px 8px; }
+            .container { flex-direction: column; }
+            nav { width: 100%; min-height: unset; flex-direction: row; gap: 0; padding: 0; }
+            .node { margin: 0; border-radius: 0; padding: 10px 8px; font-size: 0.95rem; }
+        }
+   .tab {
+            padding:12px 32px 10px 32px;
+            color:#d4d4d4;
+            background:#232336;
+            text-decoration:none;
+            font-family:inherit;
+            font-size:1rem;
+            font-weight:500;
+        }
+
+        .active {
+            color: #7aa2f7;
+            background: #181825;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            padding:12px 32px 10px 32px;
+            text-decoration:none;
+            font-family:inherit;
+            font-size:1rem;
+            font-weight:500;
+        }
+    </style>
+</head>
+<body>
+    <div class="editor-bg"></div>
+    <div class="container" style="flex-direction:column;max-width:900px;">
+      <div class="tabs" style="display:flex;background:#232336;border-bottom:1px solid #22223b;">
+        <a href="index.html" class="tab">home.html</a>
+        <a href="projects.html" class="tab">projects.html</a>
+        <a href="experience.html" class="tab active">experience.html</a>
+        <a href="gallery.html" class="tab">gallery.html</a>
+      </div>
+      <main style="background:#181825;padding:48px 32px;">
+        <h1 style="font-family:inherit;font-size:2rem;font-weight:600;color:#7aa2f7;margin-bottom:16px;letter-spacing:1px;">Experience</h1>
+        <p style="color:#b0b0b0;font-size:1.2rem;max-width:500px;">All my work/internship experience is going to be displayed here</p>
+      </main>
+    </div>
+    <footer style="text-align:center;padding:30px 0 10px 0;color:#35354a;font-size:0.9rem;width:100%;margin-top:40px;background:#232336;">
+        &copy; 2025 Dhivya Bharathi Chellakumar. All rights reserved.
+    </footer>
+</body>
+</html>
