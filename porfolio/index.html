@@ -1,156 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dhivya Bharathi Chellakumar | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            background: #181825;
-            color: #c9d1d9;
-            font-family: 'Fira Mono', 'Menlo', 'Consolas', 'Monaco', monospace;
-        }
-        .editor-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: 0;
-            pointer-events: none;
-            background: repeating-linear-gradient(0deg, #232336 0px, #282858 1px, transparent 1px, transparent 32px);
-        }
-        .container {
-            display: flex;
-            flex-direction:column;
-            max-width: 900px;
-            margin: 48px auto 0 auto;
-            box-shadow: 0 4px 32px #000a;
-            border-radius: 10px;
-            overflow: hidden;
-            background: #232336;
-        }
-        nav {
-            background: #232336;
-            width: 180px;
-            min-height: 420px;
-            padding: 24px 0;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .explorer-title {
-            color: #7aa2f7;
-            font-size: 1.1rem;
-            font-weight: 600;
-            padding: 0 24px 16px 24px;
-            letter-spacing: 1px;
-        }
-        .node {
-            background: #232336;
-            color: #c9d1d9;
-            border-radius: 6px 6px 0 0;
-            margin: 0 16px;
-            padding: 12px 24px;
-            font-size: 1.05rem;
-            font-family: inherit;
-            font-weight: 500;
-            cursor: pointer;
-            box-shadow: 0 2px 8px #0004;
-            text-decoration: none;
-            border: 1px solid #35354a;
-            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-            display: block;
-        }
-        .node:hover {
-            background: #2d2d40;
-            color: #7aa2f7;
-            box-shadow: 0 6px 24px #0007;
-        }
-        main {
-            flex: 1;
-            background: #181825;
-            padding: 48px 32px;
-        }
-        h1 {
-            font-family: inherit;
-            font-size: 2rem;
-            font-weight: 600;
-            color: #7aa2f7;
-            margin-bottom: 16px;
-            letter-spacing: 1px;
-        }
-        p {
-            color: #b0b0b0;
-            font-size: 1.2rem;
-            max-width: 500px;
-        }
-        @media (max-width: 600px) {
-            h1 { font-size: 1.2rem; }
-            main { padding: 24px 8px; }
-            .container { flex-direction: column; }
-            nav { width: 100%; min-height: unset; flex-direction: row; gap: 0; padding: 0; }
-            .node { margin: 0; border-radius: 0; padding: 10px 8px; font-size: 0.95rem; }
-        }
-        .tab {
-            padding:12px 32px 10px 32px;
-            color:#d4d4d4;
-            background:#232336;
-            text-decoration:none;
-            font-family:inherit;
-            font-size:1rem;
-            font-weight:500;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kamesh — Photographer & Art Director</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .active {
-            color: #7aa2f7;
-            background: #181825;
-            border-top-left-radius: 6px;
-            border-top-right-radius: 6px;
-            padding:12px 32px 10px 32px;
-            text-decoration:none;
-            font-family:inherit;
-            font-size:1rem;
-            font-weight:500;
-        }
-        .footer {
-            display: flex;
-            justify-content: center;
-            padding:30px 0 10px 0;
-            color:#7b7b88;
-            font-size:0.9rem;
-            width:100%;
-            background:#232336;
-        }
-        .tabs {
-            display:flex;background:#232336;border-bottom:1px solid #22223b;
-        }
-    </style>
+    :root {
+      --bg: #f8f8f6;
+      --text: #111111;
+      --muted: #888888;
+      --border: #e0e0dc;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 48px;
+      background: var(--bg);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s;
+    }
+    nav.scrolled { border-color: var(--border); }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 48px 72px;
+    }
+
+    .hero-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(4rem, 10vw, 9rem);
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 32px;
+    }
+
+    .hero-sub {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .hero-desc {
+      max-width: 380px;
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .hero-scroll {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .hero-scroll span {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      writing-mode: vertical-rl;
+    }
+    .hero-scroll .line {
+      width: 1px;
+      height: 48px;
+      background: var(--border);
+    }
+
+    /* FEATURED */
+    .featured {
+      padding: 96px 48px;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .section-link {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--text);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .section-link:hover { color: var(--muted); border-color: var(--muted); }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+
+    .work-item {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      overflow: hidden;
+    }
+
+    .work-item:first-child {
+      grid-row: 1 / 3;
+    }
+
+    .work-thumb {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #d9d9d5;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .work-item:first-child .work-thumb {
+      aspect-ratio: 3/4;
+      height: 100%;
+    }
+
+    .work-thumb-inner {
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .work-item:hover .work-thumb-inner { transform: scale(1.04); }
+
+    /* placeholder tones for each item */
+    .tone-1 { background: #c8c8c4; }
+    .tone-2 { background: #d4d0ca; }
+    .tone-3 { background: #caced4; }
+    .tone-4 { background: #d0ccc8; }
+
+    .work-meta {
+      padding: 16px 0 8px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .work-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    .work-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--text); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      .hero { padding: 0 24px 56px; }
+      .hero-title { font-size: clamp(3rem, 14vw, 5rem); }
+      .hero-sub { flex-direction: column; align-items: flex-start; }
+      .hero-scroll { display: none; }
+      .featured { padding: 64px 24px; }
+      .featured-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+      .work-item:first-child { grid-row: auto; }
+      .work-item:first-child .work-thumb { aspect-ratio: 4/3; height: auto; }
+      footer { padding: 24px; flex-direction: column; gap: 16px; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
-    <div class="editor-bg"></div>
-    <div class="container">
-      <div class="tabs">
-        <a href="index.html" class="tab active">home.html</a>
-        <a href="projects.html" class="tab">projects.html</a>
-        <a href="experience.html" class="tab">experience.html</a>
-        <a href="gallery.html" class="tab ">gallery.html</a>
-    </div>
-      <main>
-        <h1>Dhivya Bharathi Chellakumar</h1>
-        <p>
-            I am a rising sophomore at Ashoka university pursuing a major in computer science and a minor in biology.
-        </p>
-        <p>
-           I'm fascinated by the intersection of biology and computer science. 
-           Beyond that, I also have a strong interest in fields like cryptography, machine learning, natural language processing (NLP), and artificial intelligence (AI).
-        </p>
-      </main>
-    </div>
-    <footer class="footer">
-        &copy; 2025 Dhivya Bharathi Chellakumar. All rights reserved.
-    </footer>
-</body>
 
+  <nav id="main-nav">
+    <a href="index.html" class="nav-logo">Kamesh</a>
+    <ul class="nav-links">
+      <li><a href="work.html">Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <p class="hero-label">Photographer &amp; Art Director</p>
+    <h1 class="hero-title">Visual<br><em>stories</em><br>that sell.</h1>
+    <div class="hero-sub">
+      <p class="hero-desc">
+        Crafting campaign imagery and art direction for brands that want to be remembered. Based in Mumbai, working worldwide.
+      </p>
+      <a href="#featured" class="hero-scroll">
+        <span>Scroll</span>
+        <div class="line"></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="featured" id="featured">
+    <div class="section-header">
+      <span class="section-label">Selected Work</span>
+      <a href="work.html" class="section-link">View all</a>
+    </div>
+    <div class="featured-grid">
+      <a href="work.html" class="work-item">
+        <div class="work-thumb">
+          <div class="work-thumb-inner tone-1"></div>
+        </div>
+        <div class="work-meta">
+          <span class="work-title">Aether Fragrance</span>
+          <span class="work-tag">Campaign</span>
+        </div>
+      </a>
+      <a href="work.html" class="work-item">
+        <div class="work-thumb">
+          <div class="work-thumb-inner tone-2"></div>
+        </div>
+        <div class="work-meta">
+          <span class="work-title">Noir Fashion</span>
+          <span class="work-tag">Editorial</span>
+        </div>
+      </a>
+      <a href="work.html" class="work-item">
+        <div class="work-thumb">
+          <div class="work-thumb-inner tone-3"></div>
+        </div>
+        <div class="work-meta">
+          <span class="work-title">Vertex Motors</span>
+          <span class="work-tag">Product</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-copy">&copy; 2025 Kamesh. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="contact.html">Email</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+  </script>
+
+</body>
 </html>
